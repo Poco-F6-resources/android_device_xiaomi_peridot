@@ -179,7 +179,9 @@ vendor.display.perf_hint_window=50
 ro.vendor.perf.scroll_opt=0
 
 # HWUI
+debug.hwui.use_hint_manager=true
 debug.sf.enable_adpf_cpu_hint=true
+debug.hwui.target_cpu_time_percent=10
 
 # QCOM
 ro.soc.manufacturer=QTI
