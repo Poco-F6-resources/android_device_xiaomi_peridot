@@ -287,7 +287,7 @@ PRODUCT_COPY_FILES += \
 # Lineage Health
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
-	
+    
 # Logging
 include $(LOCAL_PATH)/configs/logging.mk
 
@@ -365,7 +365,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr \
     libqti-perfd-client
-	
+    
 TARGET_PROVIDES_POWERHAL := true
 
 PRODUCT_COPY_FILES += \
