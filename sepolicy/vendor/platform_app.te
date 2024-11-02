@@ -22,11 +22,16 @@ binder_call(platform_app, hal_camera_default)
 
 get_prop(platform_app, vendor_audio_prop)
 get_prop(platform_app, vendor_camera_prop)
+get_prop(platform_app, vendor_camera_sensor_prop)
 get_prop(platform_app, vendor_fp_prop)
 get_prop(platform_app, vendor_display_prop)
 get_prop(platform_app, vendor_displayfeature_prop)
 get_prop(platform_app, vendor_panel_info_prop)
 get_prop(platform_app, vendor_camera_p3enable_prop)
+
+# Allow platform apps to access camerapostproc services
+allow platform_app vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
+binder_call(platform_app, vendor_hal_camerapostproc_xiaomi)
 
 # Fps
 allow platform_app vendor_sysfs_graphics:file r_file_perms;
