@@ -849,6 +849,7 @@
          <item>"/system/framework/framework.jar"</item>
          <item>"/system/framework/services.jar"</item>
          <item>"/system/bin/surfaceflinger"</item>
+		 <item>"/system_ext/priv-app/SystemUI/SystemUI.apk"</item>
          <item>/vendor/framework/androidx.camera.extensions.impl.jar</item>
      </string-array>
 
