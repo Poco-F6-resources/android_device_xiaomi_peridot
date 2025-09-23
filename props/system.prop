@@ -11,3 +11,6 @@ ro.media.xml_variant.profiles=_cliffs_v0
 
 # LMK
 ro.config.low_ram=false
+
+# Feature flags
+persist.sys.fflag.override.settings_enable_monitor_phantom_procs=false
