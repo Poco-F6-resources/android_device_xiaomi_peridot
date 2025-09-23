@@ -142,6 +142,9 @@ vendor.gralloc.disable_ubwc=0
 vendor.gralloc.enable_logs=0
 vendor.perf.framepacing.enable=1
 
+# Enable Vulkan for HWUI
+ro.hwui.use_vulkan=true
+
 # Incremental
 ro.incremental.enable=yes
 
