@@ -11,14 +11,12 @@ allow hal_power_default sysfs_gpu:file { read write open };
 rw_dir_file(hal_power_default, sysfs_therm)
 
 allow hal_power_default sysfs_gpu:dir { search };
-allow hal_power_default sysfs_touchpanel:dir search;
 
 r_dir_file(hal_power_default, input_device)
 
 allow hal_power_default {
   vendor_sysfs_devfreq
   sysfs_msm_subsys
-  sysfs_touchpanel
   sysfs_thermal
 }:dir search;
 
@@ -28,7 +26,6 @@ allow hal_power_default {
   vendor_sysfs_graphics
   vendor_sysfs_kgsl
   vendor_sysfs_scsi_host
-  sysfs_touchpanel
   sysfs_thermal
 }:{
   file
