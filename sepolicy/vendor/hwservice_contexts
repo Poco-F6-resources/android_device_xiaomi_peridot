@@ -1,3 +1,7 @@
 # Camera
 vendor.qti.qspmhal::IQspmhal                                 u:object_r:vendor_hal_qspmhal_hwservice:s0
 vendor.xiaomi.hardware.bgservice::IBGService                 u:object_r:hal_camera_mivi_hwservice:s0
+
+
+# Touchfeature
+ vendor.xiaomi.hw.touchfeature::ITouchFeature                u:object_r:hal_touchfeature_xiaomi_hwservice:s0
