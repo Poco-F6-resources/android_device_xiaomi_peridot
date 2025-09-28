@@ -183,6 +183,9 @@ ro.vendor.extension_library=libqti-perfd-client.so
 vendor.display.perf_hint_window=50
 ro.vendor.perf.scroll_opt=0
 
+# HWUI
+debug.sf.enable_adpf_cpu_hint=true
+
 # QCOM
 ro.soc.manufacturer=QTI
 ro.soc.model=SM8635
