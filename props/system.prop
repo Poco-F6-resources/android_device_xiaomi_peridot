@@ -26,6 +26,9 @@ persist.log.tag.ACDB-LOADER=S
 persist.log.tag.CVP=S
 persist.log.tag.ResourcesCompat=S
 persist.log.tag.SYNX-UMD=S
+persist.log.tag.QC2Buf=W
+persist.log.tag.QC2V4l2Codec=E
+persist.log.tag.minksocket=S
 
 # Feature flags
 persist.sys.fflag.override.settings_enable_monitor_phantom_procs=false
