@@ -6,5 +6,21 @@ ro.miui.build.region				u:object_r:exported_system_prop:s0
 ro.vendor.audio.zoom.type			u:object_r:exported_default_prop:s0
 system.algo.aivs.debug				u:object_r:exported_default_prop:s0
 
-ro.max.fling_velocity          u:object_r:exported_system_prop:s0
-ro.min.fling_velocity          u:object_r:exported_system_prop:s0
+ro.max.fling_velocity               u:object_r:exported_system_prop:s0
+ro.min.fling_velocity               u:object_r:exported_system_prop:s0
+
+# Hardware
+ro.hardware.chipname				u:object_r:exported_default_prop:s0
+
+# MIUI
+ro.miui.customized.region           u:object_r:exported_system_prop:s0
+ro.miui.cust_variant                u:object_r:exported_system_prop:s0
+ro.cust.test                        u:object_r:exported_system_prop:s0
+ro.tiantong                         u:object_r:exported_system_prop:s0
+
+# Misc
+ro.carrier.name	                    u:object_r:exported_system_prop:s0
+
+# Xiaomi specific build properties
+ro.fota.oem                         u:object_r:build_prop:s0
+ro.product.marketname               u:object_r:build_prop:s0
