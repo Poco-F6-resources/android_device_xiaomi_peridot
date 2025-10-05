@@ -14,6 +14,9 @@ allow hal_power_default sysfs_gpu:dir { search };
 allow hal_power_default fwk_stats_service:service_manager find;
 allow hal_power_default hal_thermal_default:binder { call transfer };
 
+# Additional rule for sysfs CPU nodes
+allow hal_power_default sysfs_devices_system_cpu:file rw_file_perms;
+
 # To get/set powerhal state property
 set_prop(hal_power_default, vendor_power_prop)
 
@@ -50,7 +53,17 @@ allow hal_power_default {
   vendor_sysfs_devfreq
 }:dir r_dir_perms;
 
+# Thermal
+rw_dir_file(hal_power_default, sysfs_thermal)
+set_prop(hal_power_default, vendor_thermal_prop)
+get_prop(hal_power_default, vendor_thermal_prop)
+
+# Do not audit dac_override capability
+dontaudit hal_power_default self:capability dac_override;
+
+# Allow access to latency device for CPU DMA latency
 allow hal_power_default vendor_latency_device:chr_file rw_file_perms;
+allow hal_power_default vendor_latency_device:chr_file ioctl;
 allow hal_power_default self:capability sys_admin;
 
 dontaudit hal_power_default self:capability dac_override;
