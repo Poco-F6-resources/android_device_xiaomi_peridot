@@ -3,3 +3,9 @@ set_prop(vendor_init, vendor_deviceid_prop)
 set_prop(vendor_init, vendor_fp_prop)
 set_prop(vendor_init, vendor_media_performance_class)
 set_prop(vendor_init, vendor_mischeck_prop)
+allow vendor_init cgroup:file getattr;
+allow vendor_init sysfs:lnk_file setattr;
+
+# Allow vendor_init to access device files
+allow vendor_init device:chr_file getattr;
+allow vendor_init vendor_miev_device:chr_file getattr;
