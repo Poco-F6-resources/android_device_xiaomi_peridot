@@ -9,9 +9,13 @@ get_prop(platform_app, vendor_panel_info_prop)
 
 # Camera
 allow platform_app app_data_file:file execute;
+allow platform_app vendor_camera_sensor_prop:file read;
+allow platform_app vendor_camera_p3enable_prop:file read;
 allow platform_app hal_aidlbgservice_service:service_manager find;
 allow platform_app hal_camera_mivi_hwservice:hwservice_manager find;
-allow platform_app vendor_displayfeature_prop:file read;
+
+# Allow camera app to search adsprpcd directory
+allow platform_app adsprpcd_file:dir { search getattr };
 
 binder_call(platform_app, hal_camera_default)
 
@@ -20,3 +24,6 @@ get_prop(platform_app, vendor_camera_prop)
 get_prop(platform_app, vendor_fp_prop)
 get_prop(platform_app, vendor_display_prop)
 get_prop(platform_app, vendor_panel_info_prop)
+
+# Allow platform apps to access vendor display feature properties
+allow platform_app vendor_displayfeature_prop:file { open read getattr };

@@ -9,3 +9,7 @@ allow vendor_init sysfs:lnk_file setattr;
 # Allow vendor_init to access device files
 allow vendor_init device:chr_file getattr;
 allow vendor_init vendor_miev_device:chr_file getattr;
+
+# Allow vendor_init to set various properties
+allow vendor_init vendor_ims_prop:property_service set;
+allow vendor_init exported_system_prop:property_service set;
