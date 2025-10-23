@@ -1,0 +1,2 @@
+# Allow vendor_qms services to read their properties
+allow vendor_qms_app vendor_qms_prop:file read;

@@ -1,0 +1,2 @@
+allow cameraserver camera_data_file:dir { search write read open getattr };
+binder_call(cameraserver, hal_camera_default)

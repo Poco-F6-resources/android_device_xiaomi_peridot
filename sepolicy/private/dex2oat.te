@@ -1,0 +1,2 @@
+# Allow dex2oat to search system data directory during compilation
+allow dex2oat system_data_file:dir search;
