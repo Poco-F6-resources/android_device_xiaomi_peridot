@@ -11,6 +11,7 @@ get_prop(platform_app, vendor_panel_info_prop)
 allow platform_app app_data_file:file execute;
 allow platform_app vendor_camera_sensor_prop:file read;
 allow platform_app vendor_camera_p3enable_prop:file read;
+allow platform_app vendor_displayfeature_prop:file read;
 allow platform_app hal_aidlbgservice_service:service_manager find;
 allow platform_app hal_camera_mivi_hwservice:hwservice_manager find;
 
