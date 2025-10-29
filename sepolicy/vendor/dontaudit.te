@@ -7,7 +7,12 @@ dontaudit system_server {
 }:file getattr;
 
 dontaudit kernel mnt_vendor_file:dir search;
+dontaudit vendor_init default_prop:property_service set;
 dontaudit vendor_qtidataservices_app default_prop:file { read };
+dontaudit init vendor_sysfs_sd:file write;
+dontaudit vold vendor_sysfs_sd:file write;
+dontaudit bootanim vendor_file:file read;
+dontaudit hal_power_default hal_thermal_service:service_manager find;
 
 # SurfaceFlinger
 dontaudit surfaceflinger vendor_file:file read;
