@@ -20,9 +20,6 @@ dontaudit system_server system_user_mode_emulation_prop:file read;
 # Proc
 allow system_server proc:file getattr;
 allow system_server proc_iomem:file getattr;
-allow system_server proc_misc:file getattr;
-allow system_server proc_mtd:file getattr;
-allow system_server proc_crypto:file getattr;
 allow system_server proc_kmsg:file getattr;
 allow system_server proc_modules:file getattr;
 allow system_server proc_kpageflags:file getattr;
