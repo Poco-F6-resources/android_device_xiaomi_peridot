@@ -15,6 +15,9 @@ dontaudit bootanim vendor_file:file read;
 dontaudit hal_power_default hal_thermal_service:service_manager find;
 dontaudit vendor_qms_1 vendor_qms_prop:file read;
 dontaudit vendor_qms_2 vendor_qms_prop:file read;
+dontaudit platform_app vendor_file:file read;
+dontaudit tee device:chr_file { read write };
+dontaudit vendor_init radio_prop:file read;
 
 # SurfaceFlinger
 dontaudit surfaceflinger vendor_file:file read;
