@@ -1,4 +1,6 @@
 allow hal_audio_default diag_device:chr_file rw_file_perms;
 allow hal_audio_default debugfs:dir { open search };
 allow hal_audio_default sysfs:dir { read open };
+allow hal_audio_default vendor_audio_prop:file { read open getattr };
+allow hal_audio_default property_socket:sock_file write;
 get_prop(hal_audio_default, vendor_pd_locater_dbg_prop)
