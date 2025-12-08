@@ -34,6 +34,8 @@ import android.view.Display;
 import org.lineageos.settings.display.ColorModeService;
 import org.lineageos.settings.refreshrate.RefreshUtils;
 import org.lineageos.settings.touchsampling.TouchSamplingUtils;
+import org.lineageos.settings.touchsampling.TouchSamplingService;
+import org.lineageos.settings.touchsampling.TouchSamplingTileService;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     private static final boolean DEBUG = false;
@@ -80,6 +82,14 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Start Refresh Rate Service
         RefreshUtils.startService(context);
+
+        // Start Touch Sampling Service
+        context.startServiceAsUser(new Intent(context, TouchSamplingService.class),
+                UserHandle.CURRENT);
+
+        // Touch Sampling Tile Service
+        context.startServiceAsUser(new Intent(context, TouchSamplingTileService.class), 
+                UserHandle.CURRENT);
     }    
 
     private static void onBootCompleted(Context context) {

@@ -18,31 +18,74 @@
 package org.lineageos.settings.touchsampling;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.SharedPreferences;
-import android.os.UserHandle;
-import android.provider.Settings;
 import android.util.Log;
-import androidx.preference.PreferenceManager;
 
 import org.lineageos.settings.utils.FileUtils;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.util.HashSet;
+import java.util.Set;
 
 public final class TouchSamplingUtils {
 
     private static final String TAG = "TouchSamplingUtils";
     public static final String HTSR_FILE = "/sys/devices/virtual/touch/touch_dev/bump_sample_rate";
 
+    // Per-app HTSR preferences
+    public static final String PER_APP_HTSR_ENABLED_APPS = "per_app_htsr_enabled_apps";
+
     public static void restoreSamplingValue(Context context) {
-        SharedPreferences sharedPref = context.getSharedPreferences(TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
-        Integer htsrstate = sharedPref.getInt(TouchSamplingSettingsFragment.SHAREDHTSR, 0);
-        FileUtils.writeLine(HTSR_FILE, htsrstate.toString());
+        SharedPreferences sharedPref = context.getSharedPreferences(
+                TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
+        boolean htsrState = sharedPref.getBoolean(TouchSamplingSettingsFragment.HTSR_STATE, false);
+        writeTouchSamplingState(htsrState ? 1 : 0);
+    }
+
+    public static boolean writeTouchSamplingState(int state) {
+        boolean success = FileUtils.writeOneLine(HTSR_FILE, String.valueOf(state));
+        if (!success) {
+            Log.e(TAG, "Failed to write touch sampling state: " + state);
+        }
+        return success;
+    }
+
+    public static int readTouchSamplingState() {
+        String currentState = FileUtils.readOneLine(HTSR_FILE);
+        if (currentState != null) {
+            try {
+                return Integer.parseInt(currentState.trim());
+            } catch (NumberFormatException e) {
+                Log.e(TAG, "Invalid touch sampling state format: " + currentState);
+            }
+        }
+        return 0; // Default to disabled
+    }
+
+    // Per-app HTSR methods
+    public static boolean isPerAppHtsrEnabled(Context context, String packageName) {
+        SharedPreferences sharedPref = context.getSharedPreferences(
+                TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
+        Set<String> enabledApps = sharedPref.getStringSet(PER_APP_HTSR_ENABLED_APPS, new HashSet<>());
+        return enabledApps.contains(packageName);
+    }
+
+    public static void setPerAppHtsrEnabled(Context context, String packageName, boolean enabled) {
+        SharedPreferences sharedPref = context.getSharedPreferences(
+                TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
+        Set<String> enabledApps = new HashSet<>(sharedPref.getStringSet(PER_APP_HTSR_ENABLED_APPS, new HashSet<>()));
+        
+        if (enabled) {
+            enabledApps.add(packageName);
+        } else {
+            enabledApps.remove(packageName);
+        }
+        
+        sharedPref.edit().putStringSet(PER_APP_HTSR_ENABLED_APPS, enabledApps).apply();
+    }
+
+    public static Set<String> getPerAppHtsrEnabledApps(Context context) {
+        SharedPreferences sharedPref = context.getSharedPreferences(
+                TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
+        return new HashSet<>(sharedPref.getStringSet(PER_APP_HTSR_ENABLED_APPS, new HashSet<>()));
     }
 }

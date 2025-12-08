@@ -184,6 +184,30 @@
                 android:resource="@string/htsr_enable_summary" />
         </activity>
 
+        <service
+            android:name=".touchsampling.TouchSamplingService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="false" />
+
+        <!-- Touch Sampling Tile Service -->
+        <service
+            android:name=".touchsampling.TouchSamplingTileService"
+            android:label="@string/touch_sampling_tile_label"
+            android:icon="@drawable/ic_touch_sampling_tile"
+			android:exported="true"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <!-- Per-App Touch Sampling Activity -->
+        <activity
+            android:name=".touchsampling.TouchSamplingPerAppActivity"
+            android:label="@string/per_app_htsr_title"
+            android:theme="@style/Theme.SubSettingsBase"
+            android:exported="false" />        
+
         <!-- Tile Entry Activity -->
          <activity
              android:name=".TileEntryActivity"

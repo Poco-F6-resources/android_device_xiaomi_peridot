@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The LineageOS Project
+ * Copyright (C) 2018-2024 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,44 +16,89 @@
 
 package org.lineageos.settings.touchsampling;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.provider.Settings;
+
 import androidx.preference.Preference;
-import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.SwitchPreference;
 
+import java.util.Set;
+
 import org.lineageos.settings.R;
-import org.lineageos.settings.touchsampling.TouchSamplingUtils;
-import org.lineageos.settings.utils.FileUtils;
 
 public class TouchSamplingSettingsFragment extends PreferenceFragment implements
-        OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener {
 
     private static final String HTSR_ENABLE_KEY = "htsr_enable";
+    private static final String PER_APP_HTSR_KEY = "per_app_htsr";
     public static final String SHAREDHTSR = "SHAREDHTSR";
+    public static final String HTSR_STATE = "htsr_state";
 
     private SwitchPreference mHTSRPreference;
+    private Preference mPerAppHTSRPreference;
+    private SharedPreferences mPrefs;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.htsr_settings);
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+        
         mHTSRPreference = (SwitchPreference) findPreference(HTSR_ENABLE_KEY);
-        mHTSRPreference.setEnabled(true);
+        mPerAppHTSRPreference = findPreference(PER_APP_HTSR_KEY);
+        mPrefs = getActivity().getSharedPreferences(SHAREDHTSR, Context.MODE_PRIVATE);
+
+        // Initialize switch state
+        boolean htsrEnabled = mPrefs.getBoolean(HTSR_STATE, false);
+        mHTSRPreference.setChecked(htsrEnabled);
         mHTSRPreference.setOnPreferenceChangeListener(this);
-        enableHTSR(0);
+
+        // Set up per-app HTSR preference
+        mPerAppHTSRPreference.setOnPreferenceClickListener(preference -> {
+            Intent intent = new Intent(getActivity(), TouchSamplingPerAppActivity.class);
+            startActivity(intent);
+            return true;
+        });
+
+        // Ensure service state matches preference
+        controlTouchSamplingService(htsrEnabled);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (HTSR_ENABLE_KEY.equals(preference.getKey())) {
-            enableHTSR((Boolean) newValue ? 1 : 0);
+            boolean isEnabled = (Boolean) newValue;
+
+            // Save state
+            mPrefs.edit().putBoolean(HTSR_STATE, isEnabled).apply();
+
+            // Control service and hardware
+            controlTouchSamplingService(isEnabled);
+            if (!isEnabled) {
+                // Only write 0 to hardware if no per-app HTSR is enabled
+                Set<String> enabledApps = TouchSamplingUtils.getPerAppHtsrEnabledApps(getActivity());
+                if (enabledApps.isEmpty()) {
+                    TouchSamplingUtils.writeTouchSamplingState(0);
+                }
+            } else {
+                TouchSamplingUtils.writeTouchSamplingState(1);
+            }
         }
         return true;
+    }
+
+    private void controlTouchSamplingService(boolean enable) {
+        Intent serviceIntent = new Intent(getActivity(), TouchSamplingService.class);
+        Set<String> enabledApps = TouchSamplingUtils.getPerAppHtsrEnabledApps(getActivity());
+        
+        if (enable || !enabledApps.isEmpty()) {
+            getActivity().startService(serviceIntent);
+        } else {
+            getActivity().stopService(serviceIntent);
+        }
     }
 
     @Override
@@ -63,13 +108,5 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
             return true;
         }
         return false;
-    }
-
-    private void enableHTSR(Integer enable) {
-            FileUtils.writeLine(TouchSamplingUtils.HTSR_FILE, enable.toString());
-            SharedPreferences preferences = getActivity().getSharedPreferences(SHAREDHTSR,Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putInt(SHAREDHTSR, enable);
-            editor.commit();
     }
 }
