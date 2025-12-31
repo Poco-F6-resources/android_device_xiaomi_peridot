@@ -50,12 +50,10 @@ allow parts_app sysfs_thermal:dir r_dir_perms;
 allow parts_app sysfs_thermal:file rw_file_perms;
 allow parts_app vendor_hal_displayfeature_xiaomi_hwservice:hwservice_manager find;
 
-allow parts_app vendor_hal_displayfeature_xiaomi_service:binder { call transfer };
 allow parts_app vendor_hal_displayfeature_xiaomi_default:binder { call transfer };
 dontaudit parts_app vendor_hal_displayfeature_xiaomi_service:service_manager find;
 dontaudit parts_app vendor_hal_displayfeature_xiaomi_default:service_manager find;
 
-binder_call(parts_app, default_android_hwservice)
 binder_call(parts_app, gpuservice)
 
 set_prop(parts_app, exported_system_prop)
