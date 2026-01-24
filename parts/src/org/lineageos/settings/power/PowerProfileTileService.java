@@ -224,11 +224,6 @@ public class PowerProfileTileService extends TileService {
         
         switch (profile) {
             case BATTERY:
-                if (!isCharging) {
-                    setBatterySaver(true);
-                } else {
-                    setBatterySaver(false); // Disable battery saver if charging
-                }
                 cancelPerformanceNotification();
                 break;
             case PERFORMANCE:
