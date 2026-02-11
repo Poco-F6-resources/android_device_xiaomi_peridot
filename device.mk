@@ -16,9 +16,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_ven
 # ChargeControl
 $(call inherit-product, packages/apps/ChargeControl/chargecontrol.mk)
 
-# FastCharge
-$(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
-
 # MiuiCamera
 $(call inherit-product-if-exists, device/xiaomi/peridot-miuicamera/device.mk)
 
@@ -238,6 +235,10 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     Settings \
     SystemUI
 
+# FastCharge
+PRODUCT_PACKAGES += \
+    FastCharge
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
@@ -349,6 +350,7 @@ PRODUCT_PACKAGES += \
     LineageSettingsOverlayPeridot \
     NfcOverlayPeridot \
     OpenDeltaOverlayPeridot \
+    FastChargePeridot \
     SecureElementOverlayPeridot \
     SettingsOverlayPeridot \
     SettingsProviderOverlayPeridotPOCO \
