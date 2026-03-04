@@ -24,3 +24,6 @@ allow system_server proc_modules:file getattr;
 allow system_server proc_kpageflags:file getattr;
 allow system_server proc_keys:file getattr;
 allow system_server proc_kpageflags:file getattr;
+
+# Dolby
+hal_client_domain(system_server, hal_dms)
