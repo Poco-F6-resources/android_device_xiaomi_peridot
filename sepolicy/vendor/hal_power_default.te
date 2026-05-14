@@ -1,3 +1,8 @@
 allow hal_power_default proc_walt:dir search;
 allow hal_power_default proc_walt:file rw_file_perms;
 allow hal_power_default vendor_sysfs_msm_perf:file rw_file_perms;
+
+# Allow libperfmgr to write on /proc & sysfs
+allow hal_power_default sysfs:file rw_file_perms;
+allow hal_power_default sysfs:file open;
+allow hal_power_default proc:file rw_file_perms;
