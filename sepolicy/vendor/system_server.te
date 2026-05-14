@@ -1,3 +1,9 @@
 binder_call(system_server, vendor_hal_displayfeature_xiaomi_default)
 
 allow platform_app hal_aidlbgservice_service:service_manager find;
+
+# Allow getattr on various proc files
+allow system_server { 
+  proc_uptime proc_diskstats proc_interrupts proc_cgroups 
+  proc_swaps proc_zoneinfo proc_buddyinfo proc_bootconfig 
+}:file getattr;

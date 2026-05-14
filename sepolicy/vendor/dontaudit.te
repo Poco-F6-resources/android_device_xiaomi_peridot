@@ -2,6 +2,12 @@
 # Apps must use ASharedMemory NDK API. Native code must use libcutils API.
 dontaudit untrusted_app ashmem_device:chr_file open;
 
+dontaudit system_server { 
+  proc_kmsg proc_kallsyms proc_keys proc_slabinfo 
+}:file getattr;
+
+dontaudit kernel mnt_vendor_file:dir search;
+
 # SurfaceFlinger
 dontaudit surfaceflinger vendor_file:file read;
 
