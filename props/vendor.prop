@@ -174,6 +174,7 @@ vendor.netflix.bsp_rev=Q8635-38577-1
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 vendor.display.perf_hint_window=50
+ro.vendor.perf.scroll_opt=0
 
 # QCOM
 ro.soc.manufacturer=QTI
