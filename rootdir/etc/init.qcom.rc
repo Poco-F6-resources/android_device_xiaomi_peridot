@@ -429,6 +429,33 @@ on post-fs-data
     #Create dir for TUI
     mkdir /data/vendor/tui 0700 system drmrpc
 
+    # Uclamp tunings
+    setprop kernel.sched_util_clamp_min_rt_default 500
+    # Top-app
+    write /dev/cpuctl/top-app/cpu.uclamp.max max
+    write /dev/cpuctl/top-app/cpu.uclamp.min 10
+    write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 0
+    # Foreground
+    write /dev/cpuctl/foreground/cpu.uclamp.max 80
+    write /dev/cpuctl/foreground/cpu.uclamp.min 20
+    write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 0
+    # Background
+    write /dev/cpuctl/background/cpu.uclamp.max max
+    write /dev/cpuctl/background/cpu.uclamp.min 20
+    write /dev/cpuctl/background/cpu.uclamp.latency_sensitive 0
+    # System-background
+    write /dev/cpuctl/system-background/cpu.uclamp.max 40
+    write /dev/cpuctl/system-background/cpu.uclamp.min 0
+    write /dev/cpuctl/system-background/cpu.uclamp.latency_sensitive 0
+    # Nnapi-hal
+    write /dev/cpuctl/nnapi-hal/cpu.uclamp.max max
+    write /dev/cpuctl/nnapi-hal/cpu.uclamp.min 75
+    write /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive 1
+    # Camera-daemon
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.max max
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.min 50
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 1
+
 service nqnfcinfo /system/vendor/bin/nqnfcinfo
     class late_start
     group nfc
