@@ -38,3 +38,10 @@ persist.sys.fflag.override.settings_enable_monitor_phantom_procs=false
 persist.vendor.sys.memplus.enable=false
 ro.vendor.qti.sys.fw.bg_apps_limit=30
 ro.vendor.qti.sys.fw.bservice_limit=60
+
+# About phone
+ro.product.marketname=Poco F6
+ro.infinity.soc=Snapdragon 8s Gen 3
+ro.infinity.battery=5000 mah
+ro.infinity.display=1220 x 2712, 120 Hz
+ro.infinity.camera=50/8MP & 20MP

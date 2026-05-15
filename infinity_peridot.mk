@@ -8,13 +8,25 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common InfinityOS stuff.
+$(call inherit-product, vendor/infinity/config/common_full_phone.mk)
 
 # Inherit from peridot device
 $(call inherit-product, device/xiaomi/peridot/device.mk)
 
-PRODUCT_NAME := lineage_peridot
+# Infinity Flags
+TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_INCLUDE_ACCORD := false
+EXTRA_UDFPS_ICONS := true
+TARGET_HAS_UDFPS := true
+INFINITY_BUILD_TYPE := OFFICIAL
+INFINITY_MAINTAINER := Shikhar|Atharva
+TARGET_SUPPORTS_BLUR := true
+
+# Product Flags
+PRODUCT_NAME := infinity_peridot
 PRODUCT_DEVICE := peridot
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := POCO
