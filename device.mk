@@ -190,10 +190,13 @@ PRODUCT_COPY_FILES += \
 TARGET_USES_VULKAN := true
 HWUI_COMPILE_FOR_PERF := true
 
+# Reduce system server verbosity.
+PRODUCT_SYSTEM_SERVER_DEBUG_INFO := false
+
 # Enable whole-program R8 Java optimizations for SystemUI and system_server,
 # but also allow explicit overriding for testing and development.
-SYSTEM_OPTIMIZE_JAVA = true
-SYSTEMUI_OPTIMIZE_JAVA = true
+SYSTEM_OPTIMIZE_JAVA := true
+SYSTEMUI_OPTIMIZE_JAVA := true
 
 # Always preopt extracted APKs to prevent extracting out of the APK for gms modules
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
