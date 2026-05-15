@@ -39,6 +39,14 @@ persist.vendor.sys.memplus.enable=false
 ro.vendor.qti.sys.fw.bg_apps_limit=30
 ro.vendor.qti.sys.fw.bservice_limit=60
 
+# RIL Powersaving
+persist.radio.add_power_save=1 
+pm.sleep_mode=1 
+ro.ril.disable.power.collapse=0
+ro.ril.fast.dormancy.rule=1 
+ro.ril.fast.dormancy.timeout=5
+ro.mot.eri.losalert.delay=1000
+
 # About phone
 ro.product.marketname=Poco F6
 ro.infinity.soc=Snapdragon 8s Gen 3
