@@ -40,6 +40,12 @@
     <!-- Update battery info every second when device is charging -->
     <bool name="config_alternateFastchargeInfoUpdate">true</bool>
 
+    <!-- GPU temperature path -->
+    <string name="config_gpu_temp_path">/sys/class/kgsl/kgsl-3d0/temp</string>
+    
+    <!-- RAM temperature path -->
+    <string name="config_ram_temp_path">/sys/class/thermal/thermal_zone78/temp</string>
+
     <!-- The CPU temperature sensor path, defaults to empty -->
     <string name="config_cpuTempSensor" translatable="false">/sys/class/thermal/thermal_zone0/temp</string>
 
