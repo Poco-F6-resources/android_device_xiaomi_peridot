@@ -366,6 +366,10 @@ TARGET_PROVIDES_POWERHAL := true
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
+# Parts
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
 # QSPA
 PRODUCT_PACKAGES += \
     vendor.qti.qspa-service \
