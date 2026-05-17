@@ -50,6 +50,9 @@
 
     <!-- Whether to show volume steps settings -->
     <bool name="config_supports_volume_steps" translatable="false">true</bool>
+
+     <!-- Show high touch polling rate -->
+    <bool name="config_supportHighTouchRate">true</bool>
 	
 	<!-- Show battery cycle count -->
     <bool name="config_show_battery_cycle_count" translatable="false">true</bool>

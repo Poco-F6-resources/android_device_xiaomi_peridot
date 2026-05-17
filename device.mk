@@ -50,7 +50,7 @@ BOARD_SHIPPING_API_LEVEL := 34
 PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
 
 # Audio
-$(call soong_config_set_bool, android_hardware_audio, skip_speaker_layout_channel_mask_field, true)
+$(call soong_config_set,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
 PRODUCT_PACKAGES += \
     android.hardware.audio.service
@@ -283,19 +283,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml \
     frameworks/native/data/etc/android.hardware.keystore.app_attest_key.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.keystore.app_attest_key.xml
-
-# Lineage Health
-PRODUCT_PACKAGES += \
-    vendor.lineage.health-service.default
     
 # Logging
 include $(LOCAL_PATH)/configs/logging.mk
-
-$(call soong_config_set_bool,lineage_health,charging_control_supports_bypass,false)
-$(call soong_config_set,lineage_health,fast_charge_node,/sys/class/qcom-battery/fastcharge_enable)
-$(call soong_config_set,lineage_health,fast_charge_value_none,0)
-$(call soong_config_set,lineage_health,fast_charge_value_fast_charge,1)
-$(call soong_config_set,lineage_health,fast_charge_value_super_fast_charge,2)
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -360,6 +350,9 @@ PRODUCT_PACKAGES += \
     vendor_dsp_mountpoint \
     vendor_firmware_mnt_mountpoint \
     vendor_modem_firmware_mountpoint
+
+# Platform
+TARGET_BOARD_PLATFORM := pineapple
 
 # Power
 PRODUCT_PACKAGES += \
@@ -428,30 +421,12 @@ PRODUCT_COPY_FILES += \
 
 # Telephony
 PRODUCT_PACKAGES += \
-    extphonelib \
-    extphonelib-product \
-    extphonelib.xml \
-    extphonelib_product.xml \
-    ims-ext-common \
-    ims_ext_common.xml \
-    qti-telephony-hidl-wrapper \
-    qti-telephony-hidl-wrapper-prd \
-    qti_telephony_hidl_wrapper.xml \
-    qti_telephony_hidl_wrapper_prd.xml \
-    qti-telephony-utils \
-    qti-telephony-utils-prd \
-    qti_telephony_utils.xml \
-    qti_telephony_utils_prd.xml \
-    telephony-ext
-
-PRODUCT_PACKAGES += \
     qcrilNrDb_vendor
 
 PRODUCT_PACKAGES += \
     xiaomi-telephony-stub
 
 PRODUCT_BOOT_JARS += \
-    telephony-ext \
     xiaomi-telephony-stub
 
 PRODUCT_COPY_FILES += \
@@ -461,12 +436,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.mbms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.mbms.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml
 
-# Touchscreen
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch-service.xiaomi
-
-$(call soong_config_set, XIAOMI_TOUCH, HIGH_TOUCH_POLLING_PATH, /sys/devices/virtual/touch/touch_dev/bump_sample_rate)
-
+# TouchScreen
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
