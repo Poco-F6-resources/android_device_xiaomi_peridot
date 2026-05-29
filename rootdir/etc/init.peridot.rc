@@ -323,6 +323,14 @@ service vendor.sensors-hal-multihal /vendor/bin/hw/android.hardware.sensors-serv
     capabilities BLOCK_SUSPEND
     rlimit rtprio 10 10
 
+service vendor.qesdk-mgr /vendor/bin/qesdk-manager
+    disabled
+    override
+
+service vendor.qesdk-securitymgr /vendor/bin/qesdk-secmanager
+    disabled
+    override
+
 on property:debug.high_touch_rate=1
     write /sys/devices/virtual/touch/touch_dev/bump_sample_rate 1
 
