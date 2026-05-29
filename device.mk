@@ -13,6 +13,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Virtual A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
+# ChargeControl
+$(call inherit-product, packages/apps/ChargeControl/chargecontrol.mk)
+
+# FastCharge
+$(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
+
 # Dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
