@@ -2,8 +2,6 @@ app_domain(parts_app)
 
 binder_use(parts_app)
 
-binder_call(parts_app, vendor_hal_displayfeature_xiaomi)
-
 allow parts_app {
   activity_service
   activity_task_service
