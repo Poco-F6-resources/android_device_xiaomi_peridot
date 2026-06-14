@@ -29,7 +29,7 @@ info "Cloning All resources"
 
 # Vendor
 info "Cloning vendor tree"
-git clone -b yaap-test --depth 1 https://github.com/Poco-F6-resources/android_vendor_xiaomi_peridot.git vendor/xiaomi/peridot || fatal "Vendor tree clone failed!"
+git clone -b yaap --depth 1 https://github.com/Poco-F6-resources/android_vendor_xiaomi_peridot.git vendor/xiaomi/peridot || fatal "Vendor tree clone failed!"
 
 # Kernel sources
 info "Cloning Kernel sources"
