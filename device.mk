@@ -19,6 +19,9 @@ $(call inherit-product, packages/apps/ChargeControl/chargecontrol.mk)
 # FastCharge
 $(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
 
+# MiuiCamera
+$(call inherit-product-if-exists, device/xiaomi/peridot-miuicamera/device.mk)
+
 # Dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
