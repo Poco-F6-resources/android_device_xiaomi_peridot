@@ -19,6 +19,9 @@ $(call inherit-product, vendor/bcr/bcr.mk)
 # Dolby
 $(call inherit-product, hardware/dolby/dolby.mk)
 
+# MiuiCamera
+$(call inherit-product-if-exists, device/xiaomi/peridot-miuicamera/device.mk)
+
 # Dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
