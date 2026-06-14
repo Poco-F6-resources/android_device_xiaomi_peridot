@@ -357,7 +357,8 @@ PRODUCT_PACKAGES += \
     TelephonyOverlayPeridot \
     WifiOverlayPeridot \
     WifiOverlayPeridotPOCO \
-    WifiOverlayPeridotRedmi
+    WifiOverlayPeridotRedmi \
+    YAAPSettingsOverlayPeridot
 
 PRODUCT_PACKAGES += \
     NcmTetheringOverlay
