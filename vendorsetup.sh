@@ -89,9 +89,9 @@ rm -rf packages/apps/FastCharge
 git clone -b master git@github.com:peridot-lab/packages_apps_FastCharge.git -b master packages/apps/FastCharge
 
 # Mi Cam
-info "Cloning Normal Mi Cam"
+info "Cloning Normal Mi Cam from Gitlab"
 info "Cloning Miuicamera vendor"
-git clone -b 16.2 --depth 1 https://github.com/Poco-F6-resources/proprietary_vendor_xiaomi_peridot-miuicamera.git vendor/xiaomi/peridot-miuicamera || fatal "Vendor miuicamera clone failed!"
+git clone -b sixteen-qpr2 https://gitlab.com/krtonia/proprietary_vendor_xiaomi_peridot-miuicamera.git vendor/xiaomi/peridot-miuicamera || fatal "Vendor miuicamera clone failed!"
 
 info "Cloning Miuicamera device"
 git clone -b lineage-23.2 --depth 1 https://github.com/Poco-F6-resources/android_device_xiaomi_peridot-miuicamera.git device/xiaomi/peridot-miuicamera || fatal "Device miuicamera clone failed!"
