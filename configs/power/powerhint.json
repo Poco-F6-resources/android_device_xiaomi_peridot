@@ -629,25 +629,31 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
-      "Value": "1920000"
+      "Value": "2361600"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "CPUBigPlusClusterMinFreq",
       "Duration": 0,
-      "Value": "2150400"
+      "Value": "2304000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
-      "Value": "1344000"
+      "Value": "1593600"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "L3MinFreq",
       "Duration": 0,
       "Value": "1344000"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "CPUBWMinFreq",
+      "Duration": 0,
+      "Value": "2092000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
