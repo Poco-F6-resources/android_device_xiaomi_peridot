@@ -29,29 +29,29 @@ info "Cloning All resources"
 
 # Vendor
 info "Cloning vendor tree"
-git clone -b yaap --depth 1 https://github.com/Poco-F6-resources/android_vendor_xiaomi_peridot.git vendor/xiaomi/peridot || fatal "Vendor tree clone failed!"
+git clone -b yaap-17 --depth 1 https://github.com/Poco-F6-resources/android_vendor_xiaomi_peridot.git vendor/xiaomi/peridot || fatal "Vendor tree clone failed!"
 
 # Kernel sources
 info "Cloning Kernel sources"
-git clone -b 16.2 --depth 1 https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635.git kernel/xiaomi/sm8635 || fatal "Kernel source clone failed!"
+git clone -b 17 --depth 1 https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635.git kernel/xiaomi/sm8635 || fatal "Kernel source clone failed!"
 
 # Kernel Modules
 warn "Cleaning kernel modules directory"
 rm -rf kernel/xiaomi/sm8635-modules
 info "Cloning kernel modules"
-git clone -b 16.2 https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635-modules.git kernel/xiaomi/sm8635-modules || fatal "Kernel modules clone failed!"
+git clone -b 17 https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635-modules.git kernel/xiaomi/sm8635-modules || fatal "Kernel modules clone failed!"
 
 # Kernel Device-Trees
 warn "Cleaning kernel devicetrees directory"
 rm -rf kernel/xiaomi/sm8635-devicetrees
 info "Cloning kernel devicetrees"
-git clone -b 16.2 https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635-devicetrees.git kernel/xiaomi/sm8635-devicetrees || fatal "Kernel devicetrees clone failed!"
+git clone -b 17 https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635-devicetrees.git kernel/xiaomi/sm8635-devicetrees || fatal "Kernel devicetrees clone failed!"
 
 # Dolby
 info "Cloning AospaDolby from Lab"
 warn "Cleaning old Dolby"
 rm -rf packages/apps/DolbyAtmos
-git clone -b sixteen https://github.com/peridot-lab/android_packages_apps_DolbyAtmos.git packages/apps/DolbyAtmos || fatal "DolbyAtmos Clone failed"
+git clone -b seventeen https://github.com/peridot-lab/android_packages_apps_DolbyAtmos.git packages/apps/DolbyAtmos || fatal "DolbyAtmos Clone failed"
 
 # Hardware xiaomi
 info "Cloning hardware xiaomi from Lab"
@@ -63,18 +63,13 @@ git clone -b yaap git@github.com:peridot-lab/hardware_xiaomi_yaap.git hardware/x
 warn "Removing lineage interfaces from yaap"
 rm -rf hardware/lineage/interfaces
 info "Cloning interfaces from Lab"
-git clone -b sixteen git@github.com:peridot-lab/hardware_lineage_interfaces-yaap.git hardware/lineage/interfaces || fatal "interfaces clone failed!"
+git clone -b seventeen git@github.com:peridot-lab/hardware_lineage_interfaces-yaap.git hardware/lineage/interfaces || fatal "interfaces clone failed!"
 
 # sepolicy
 warn "Removing lineage sepolicy from yaap"
 rm -rf device/lineage/sepolicy
 info "Cloning sepolicy from Lab"
-git clone -b sixteen git@github.com:peridot-lab/device_lineage_sepolicy-yaap.git device/lineage/sepolicy || fatal "sepolicy clone failed!"
-
-# Dolby
-info "Cloning Lunaris Dolby"
-warn "Cleaning Old Dolby repo"
-git clone -b 16 https://github.com/Poco-F6-resources/hardware_dolby.git hardware/dolby || fatal "Dolby clone failed"
+git clone -b seventeen git@github.com:peridot-lab/device_lineage_sepolicy-yaap.git device/lineage/sepolicy || fatal "sepolicy clone failed!"
 
 # ChargeControl
 info "Cloning ChargeControl From Lab"
@@ -94,7 +89,7 @@ info "Cloning Miuicamera vendor"
 git clone -b sixteen-qpr2 https://gitlab.com/krtonia/proprietary_vendor_xiaomi_peridot-miuicamera.git vendor/xiaomi/peridot-miuicamera || fatal "Vendor miuicamera clone failed!"
 
 info "Cloning Miuicamera device"
-git clone -b lineage-23.2 --depth 1 https://github.com/Poco-F6-resources/android_device_xiaomi_peridot-miuicamera.git device/xiaomi/peridot-miuicamera || fatal "Device miuicamera clone failed!"
+git clone -b 17 --depth 1 https://github.com/Poco-F6-resources/android_device_xiaomi_peridot-miuicamera.git device/xiaomi/peridot-miuicamera || fatal "Device miuicamera clone failed!"
 
 # Keys
 info "Cloning Keys"
