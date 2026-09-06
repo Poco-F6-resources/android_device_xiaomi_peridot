@@ -170,6 +170,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     DSPVolumeSynchronizer
 
+# DisplayFeatures
+PRODUCT_PACKAGES += \
+    DisplayFeatures
+
 # Fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot-service.example_recovery \
@@ -366,6 +370,7 @@ PRODUCT_PACKAGES += \
     WifiOverlayPeridot \
     WifiOverlayPeridotPOCO \
     WifiOverlayPeridotRedmi \
+    DisplayFeaturesResCommon \
     YAAPSettingsOverlayPeridot
 
 PRODUCT_PACKAGES += \

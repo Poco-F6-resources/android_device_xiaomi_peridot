@@ -83,6 +83,10 @@ warn "Cleanig FastCharge"
 rm -rf packages/apps/FastCharge
 git clone -b master git@github.com:peridot-lab/packages_apps_FastCharge.git -b master packages/apps/FastCharge
 
+# Display feature
+info "Cloning DisplayFeature from Yaap"
+git clone -b seventeen https://github.com/yaap/packages_apps_DisplayFeatures.git packages/apps/DisplayFeatures || fatal "Displayfeature clone failed"
+
 # Mi Cam
 info "Cloning Normal Mi Cam from Gitlab"
 info "Cloning Miuicamera vendor"

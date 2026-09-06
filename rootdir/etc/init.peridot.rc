@@ -129,6 +129,10 @@ on boot
     chmod 0666 /dev/stune/background/cgroup.procs
     chmod 0666 /dev/stune/top-app/cgroup.procs
 
+    # Fps Node
+    chown system graphics /sys/class/drm/sde-crtc-0/measured_fps
+    chmod 0660 /sys/class/drm/sde-crtc-0/measured_fps
+
 on charger
     chown system system /sys/class/backlight/panel0-backlight/brightness
     write /sys/devices/system/cpu/qcom_lpm/parameters/sleep_disabled n
