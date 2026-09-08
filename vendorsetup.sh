@@ -83,6 +83,10 @@ warn "Cleanig FastCharge"
 rm -rf packages/apps/FastCharge
 git clone -b master git@github.com:peridot-lab/packages_apps_FastCharge.git -b master packages/apps/FastCharge
 
+# Parts
+info "Cloning Parts from Lab"
+git clone -b yaap git@github.com:peridot-lab/packages_apps_XiaomiParts.git packages/apps/XiaomiParts || fatal "XiaomiParts clone failed"
+
 # Display feature
 info "Cloning DisplayFeature from Yaap"
 git clone -b seventeen https://github.com/yaap/packages_apps_DisplayFeatures.git packages/apps/DisplayFeatures || fatal "Displayfeature clone failed"
