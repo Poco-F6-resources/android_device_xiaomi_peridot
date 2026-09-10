@@ -108,6 +108,9 @@
 # Polling Rate
 /sys/devices/virtual/touch/touch_dev/bump_sample_rate                                               u:object_r:vendor_sysfs_touch:s0
 
+# Qspm
+/(vendor|system/vendor)/lib(64)?/vendor\.qti\.qspmhal@1\.0\.so    u:object_r:same_process_hal_file:s0
+
 # Sensors
 /vendor/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal                                                   u:object_r:hal_sensors_default_exec:s0
 /(vendor|system/vendor)/bin/sensor-notifier u:object_r:vendor_sensor_notifier_exec:s0

@@ -13,3 +13,10 @@ allow vendor_init vendor_miev_device:chr_file getattr;
 # Allow vendor_init to set various properties
 allow vendor_init vendor_ims_prop:property_service set;
 allow vendor_init exported_system_prop:property_service set;
+
+allow vendor_init proc_sched:file { open write };
+allow vendor_init sysfs:file { open read write };
+allow vendor_init proc:file { open read write };
+allow vendor_init cgroup:file { getattr read write };
+allow vendor_init nfc_device:chr_file r_file_perms;
+allow vendor_init proc_drop_caches:file { open write };
