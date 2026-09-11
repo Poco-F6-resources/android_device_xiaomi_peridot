@@ -2,3 +2,10 @@ allow system_app vendor_sysfs_graphics:dir { search };
 allow system_app vendor_sysfs_graphics:file rw_file_perms;
 allow system_app vendor_sysfs_graphics:file r_file_perms;
 allow system_app same_process_hal_file:file { read open getattr map execute };
+
+# Allow binder calls to certain HAL domains
+binder_call(system_app, hal_fingerprint_default)
+binder_call(system_app, hal_audio_default)
+binder_call(system_app, hal_bootctl_default)
+binder_call(system_app, hal_camera_default)
+binder_call(system_app, hal_contexthub_default)

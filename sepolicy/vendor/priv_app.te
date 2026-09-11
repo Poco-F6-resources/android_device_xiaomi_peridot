@@ -1,0 +1,2 @@
+allow priv_app same_process_hal_file:file { read open getattr map execute };
+allow priv_app_36 same_process_hal_file:file { read open getattr map execute };
