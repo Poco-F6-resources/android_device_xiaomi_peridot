@@ -51,6 +51,13 @@ warn "Cleaning hardware/xiaomi directory (if exists)"
 rm -rf hardware/xiaomi
 git clone -b 16.2 https://github.com/Poco-F6-resources/hardware_xiaomi.git hardware/xiaomi || fatal "Hardware xiaomi clone failed!"
 
+# NotGameTurbo
+info "Cloning NotGameTurbo"
+warn "Cleaning packages/apps/NotGameTurbo"
+rm -rf packages/apps/NotGameTurbo
+git clone -b lineage23.2 https://github.com/Poco-F6-resources/android_packages_apps_NotGameTurbo.git packages/apps/NotGameTurbo || fatal "NotGameTurbo clone failed!"
+
+
 # Dolby
 info "Cloning Lunaris Dolby"
 warn "Cleaning Old Dolby repo"

@@ -7,6 +7,10 @@ get_prop(platform_app, vendor_fp_prop)
 get_prop(platform_app, vendor_display_prop)
 get_prop(platform_app, vendor_panel_info_prop)
 
+# Touch
+allow platform_app vendor_sysfs_touch:dir r_dir_perms;
+allow platform_app vendor_sysfs_touch:file rw_file_perms;
+
 # Camera
 allow platform_app app_data_file:file execute;
 allow platform_app vendor_camera_sensor_prop:file { read open getattr };
