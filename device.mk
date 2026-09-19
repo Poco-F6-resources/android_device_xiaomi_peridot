@@ -16,6 +16,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_ven
 # Bcr
 $(call inherit-product, vendor/bcr/bcr.mk)
 
+# NotGameTurbo
+$(call inherit-product, packages/apps/NotGameTurbo/notgameturbo.mk)
+
 # Dolby
 $(call inherit-product, hardware/dolby/dolby.mk)
 
