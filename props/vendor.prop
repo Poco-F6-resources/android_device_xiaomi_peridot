@@ -160,6 +160,7 @@ ro.vendor.displayfeature.dump=true
 ro.vendor.display.ai_disp.enable=true
 ro.vendor.hbm_backlight.enable=true
 ro.surface_flinger.support_kernel_idle_timer=true
+ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.pineapple.api34
 vendor.display.comp_mask=0
 vendor.display.disable_excl_rect=0
 vendor.display.disable_excl_rect_partial_fb=1
