@@ -25,9 +25,6 @@ $(call soong_config_set,update_engine,map_vabc_in_recovery,true)
 # MiuiCamera
 $(call inherit-product-if-exists, device/xiaomi/peridot-miuicamera/device.mk)
 
-# Dalvik vm configs
-$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
-
 # pKVM
 $(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)
 
@@ -238,15 +235,45 @@ PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed-profile
 # Speed profile services and wifi-service to reduce RAM and storage
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 
+# DexOpt Properties
+PRODUCT_SYSTEM_PROPERTIES += \
+    pm.dexopt.post-boot=speed-profile \
+    pm.dexopt.first-boot=speed-profile \
+    pm.dexopt.boot-after-ota=speed-profile \
+    pm.dexopt.install=speed-profile \
+    pm.dexopt.bg-dexopt=speed-profile
+
 # Use a profile based boot image for this device
 PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
 PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/boot/boot-image-profile.txt
 
 # Dex
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    Launcher3QuickStep\
+    Launcher3QuickStep \
     Settings \
     SystemUI
+
+# Dalvik VM
+PRODUCT_PRODUCT_PROPERTIES += \
+    dalvik.vm.heapstartsize?=24m \
+    dalvik.vm.heapgrowthlimit?=512m \
+    dalvik.vm.heapsize?=512m \
+    dalvik.vm.heaptargetutilization?=0.75 \
+    dalvik.vm.heapminfree?=8m \
+    dalvik.vm.heapmaxfree?=96m \
+    dalvik.vm.enable_time_based_gc_trigger?=true \
+    dalvik.vm.usejit?=true \
+    dalvik.vm.jitmaxsize?=256m \
+    dalvik.vm.jitinitialsize?=64m \
+    dalvik.vm.jitthreshold?=5000 \
+    dalvik.vm.usap_pool_enabled?=true \
+    dalvik.vm.usap_pool_size_min?=1 \
+    dalvik.vm.usap_pool_size_max?=5 \
+    dalvik.vm.usap_refill_threshold?=1 \
+    dalvik.vm.madvise.vdexfile.size?=31457280 \
+    dalvik.vm.madvise.odexfile.size?=31457280 \
+    dalvik.vm.madvise.artfile.size?=0 \
+    ro.lmk.medium?=700
 
 # Health
 PRODUCT_PACKAGES += \
