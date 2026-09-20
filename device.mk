@@ -19,6 +19,9 @@ $(call inherit-product, packages/apps/ChargeControl/chargecontrol.mk)
 # FastCharge
 $(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
 
+# Update Engine
+$(call soong_config_set,update_engine,map_vabc_in_recovery,true)
+
 # MiuiCamera
 $(call inherit-product-if-exists, device/xiaomi/peridot-miuicamera/device.mk)
 
