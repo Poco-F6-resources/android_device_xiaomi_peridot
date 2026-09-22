@@ -55,7 +55,7 @@ git clone -b 16.2 https://github.com/Poco-F6-resources/hardware_xiaomi.git hardw
 info "Cloning NotGameTurbo"
 warn "Cleaning packages/apps/NotGameTurbo"
 rm -rf packages/apps/NotGameTurbo
-git clone -b lineage23.2 https://github.com/Poco-F6-resources/android_packages_apps_NotGameTurbo.git packages/apps/NotGameTurbo || fatal "NotGameTurbo clone failed!"
+git clone -b lineage-23.2 https://github.com/Poco-F6-resources/android_packages_apps_NotGameTurbo.git packages/apps/NotGameTurbo || fatal "NotGameTurbo clone failed!"
 
 
 # Dolby
