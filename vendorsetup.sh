@@ -33,7 +33,7 @@ git clone -b yaap-17 --depth 1 https://github.com/Poco-F6-resources/android_vend
 
 # Kernel sources
 info "Cloning Kernel sources"
-git clone -b 17 --depth 1 https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635.git kernel/xiaomi/sm8635 || fatal "Kernel source clone failed!"
+git clone -b 17 https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635.git kernel/xiaomi/sm8635 || fatal "Kernel source clone failed!"
 
 # Kernel Modules
 warn "Cleaning kernel modules directory"
