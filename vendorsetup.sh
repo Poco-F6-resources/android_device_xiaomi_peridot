@@ -93,4 +93,12 @@ info "Cloning your keys inf-keys"
 git clone -b 16 git@github.com:ProjectInfinity-X/vendor_infinity-priv_keys.git vendor/infinity-priv/keys
 success "All resources cloned successfully!"
 
+# Patch
+info "Applying AV patch for dolby"
+cd frameworks/av
+git remote add lab https://github.com/peridot-lab/yaap_frameworks_av.git && git fetch lab && git cherry-pick 699ff01 || fatal "frameworks/av patch  not failed!"
+info "Patch applied successfully"
+croot
+
+success "All resources cloned successfully!"
 return 0
