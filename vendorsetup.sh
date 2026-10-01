@@ -57,6 +57,11 @@ warn "Cleaning packages/apps/NotGameTurbo"
 rm -rf packages/apps/NotGameTurbo
 git clone -b lineage-23.2 https://github.com/Poco-F6-resources/android_packages_apps_NotGameTurbo.git packages/apps/NotGameTurbo || fatal "NotGameTurbo clone failed!"
 
+# Viper4AFX
+info "Cloning Viper4AFX"
+warn "Cleaning Old Viper4AFX"
+rm -rf packages/apps/ViPER4AndroidFX
+git clone -b master git@github.com:Poco-F6-resources/Viper4AFX.git packages/apps/ViPER4AndroidFX || fatal "ViPER4AndroidFX clone failed!"
 
 # Dolby
 info "Cloning Lunaris Dolby"
