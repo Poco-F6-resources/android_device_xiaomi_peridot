@@ -74,8 +74,10 @@
       "Path": "/dev/cpu_dma_latency",
       "Values": [
         "44",
+        "67",
         "1000"
       ],
+      "DefaultIndex": 1,
       "HoldFd": true
     },
     {
@@ -367,6 +369,7 @@
         "0",
         "1"
       ],
+      "ResetOnInit": true,
       "DefaultIndex": 0
     },
     {
@@ -376,6 +379,7 @@
         "0",
         "1"
       ],
+      "ResetOnInit": true,
       "DefaultIndex": 0
     }
   ],
@@ -414,7 +418,7 @@
       "PowerHint": "INTERACTION",
       "Node": "CPUBigPlusClusterMinFreq",
       "Duration": 600,
-      "Value": "2304000"
+      "Value": "2150400"
     },
     {
       "PowerHint": "INTERACTION",
@@ -426,13 +430,13 @@
       "PowerHint": "INTERACTION",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 600,
-      "Value": "2361600"
+      "Value": "2073600"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampTAMin",
       "Duration": 0,
-      "Value": "60"
+      "Value": "50"
     },
     {
       "PowerHint": "INTERACTION",
@@ -513,22 +517,10 @@
       "Value": "15"
     },
     {
-      "PowerHint": "INTERACTIVE",
-      "Node": "SleepDisabled",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "INTERACTIVE",
-      "Node": "PredictionDisabled",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
       "PowerHint": "LAUNCH",
       "Node": "PMQoSCpuDmaLatency",
       "Duration": 1000,
-      "Value": "44"
+      "Value": "67"
     },
     {
       "PowerHint": "LAUNCH",
@@ -546,7 +538,7 @@
       "PowerHint": "LAUNCH",
       "Node": "CPUBigPlusClusterMinFreq",
       "Duration": 3000,
-      "Value": "9999999"
+      "Value": "2803200"
     },
     {
       "PowerHint": "LAUNCH",
@@ -630,13 +622,13 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
-      "Value": "2361600"
+      "Value": "2073600"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "CPUBigPlusClusterMinFreq",
       "Duration": 0,
-      "Value": "2304000"
+      "Value": "2150400"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -682,13 +674,13 @@
     {
       "PowerHint": "FP_BOOST",
       "Node": "CPUBigPlusClusterMaxFreq",
-      "Duration": 5000,
+      "Duration": 3000,
       "Value": "9999999"
     },
     {
       "PowerHint": "FP_BOOST",
       "Node": "CPUBigPlusClusterMinFreq",
-      "Duration": 5000,
+      "Duration": 3000,
       "Value": "9999999"
     },
     {
