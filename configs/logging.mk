@@ -26,6 +26,8 @@ SPAMMY_LOG_TAGS := \
     vendor.xiaomi.sensor.citsensorservice.aidl \
     vendor.qti.camera.provider-service_64 \
     vendor.hardware.vibratorfeature \
+    vendor.qti.bluetooth@1.0-ibs_handler \
+    vendor.qti.bluetooth@1.0-wake_lock \
     CamX \
     CAM_Thumbnail \
     CAM_CaptureRequestBuilder \
