@@ -1,0 +1,3 @@
+binder_call(vendor_qtelephony, vendor_diag-router)
+binder_call(vendor_diag-router, vendor_qtelephony)
+allow vendor_qtelephony vendor_hal_diaghal_hwservice:hwservice_manager find;
