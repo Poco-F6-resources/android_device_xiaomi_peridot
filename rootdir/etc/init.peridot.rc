@@ -148,6 +148,10 @@ on init
     chown system system /dev/cpu_dma_latency
     chmod 0664 /dev/cpu_dma_latency
 
+    # Game library scheduling boost
+    write /proc/sys/walt/sched_lib_name "UnityMain,libunity.so,libil2cpp.so,com.tencent.tmgp.,com.tencent.ig,com.riotgames.,com.miHoYo.,com.pubg.imobile,com.pubg.,com.supercell.,com.epicgames.,com.activision.,com.mobilechess.gp,com.mobile.legends"
+    write /proc/sys/walt/sched_lib_mask_force 255
+
 on fs
     mkdir /dev/logfs 0771 system system
     mount vfat /dev/block/bootdevice/by-name/logfs /dev/logfs noatime umask=006,uid=1000,gid=1000
