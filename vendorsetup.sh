@@ -72,7 +72,7 @@ git clone -b 16 https://github.com/Poco-F6-resources/hardware_dolby.git hardware
 info "Cloning GameBar from Kenway"
 warn "Cleaning up old packages/apps/GameBar directory"
 rm -rf packages/apps/GameBar
-git clone -b lineage-23.2 https://github.com/peridot-hyperos-2/packages_apps_GameBar.git packages/apps/GameBar || fatal "GameBar clone failed!"
+git clone -b lineage-23.2 https://github.com/kenway214/packages_apps_GameBar.git packages/apps/GameBar || fatal "GameBar clone failed!"
 
 # BCR
 info "Cloning BCR"
