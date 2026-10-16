@@ -3,3 +3,5 @@ binder_call(hal_camera_default, cameraserver)
 allow hal_camera_default system_data_file:dir search;
 allow hal_camera_default vendor_soc_id_prop:file getattr;
 dontaudit hal_camera_default shell_data_file:dir search;
+# Allow camera HAL to access miev device
+allow hal_camera_default miev_device:chr_file { write open read ioctl getattr setattr };

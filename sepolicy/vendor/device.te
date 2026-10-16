@@ -10,3 +10,6 @@ type vendor_miev_device, dev_type;
 
 # Touch
 type touchfeature_device, dev_type;
+
+# Camera
+type miev_device, dev_type;
