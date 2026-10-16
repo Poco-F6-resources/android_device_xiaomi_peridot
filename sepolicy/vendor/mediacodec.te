@@ -2,3 +2,5 @@ allow mediacodec vendor_mistcdisplay_service:service_manager find;
 get_prop(mediacodec, vendor_displayfeature_prop)
 hal_client_domain(mediacodec, hal_dms)
 get_prop(mediacodec, zygote_config_prop)
+type vendor_mediacodec_xiaomi_service, service_manager_type;
+allow mediacodec vendor_mediacodec_xiaomi_service:service_manager { add find };

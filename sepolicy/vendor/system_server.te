@@ -27,3 +27,6 @@ allow system_server proc_kpageflags:file getattr;
 
 # Dolby
 hal_client_domain(system_server, hal_dms)
+
+# Media
+allow system_server vendor_mediacodec_xiaomi_service:service_manager find;
