@@ -33,19 +33,19 @@ git clone -b yaap-17 --depth 1 https://github.com/Poco-F6-resources/android_vend
 
 # Kernel sources
 info "Cloning Kernel sources"
-git clone -b 17 https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635.git kernel/xiaomi/sm8635 || fatal "Kernel source clone failed!"
+git clone -b master https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635.git kernel/xiaomi/sm8635 || fatal "Kernel source clone failed!"
 
 # Kernel Modules
 warn "Cleaning kernel modules directory"
 rm -rf kernel/xiaomi/sm8635-modules
 info "Cloning kernel modules"
-git clone -b 17 https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635-modules.git kernel/xiaomi/sm8635-modules || fatal "Kernel modules clone failed!"
+git clone -b master https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635-modules.git kernel/xiaomi/sm8635-modules || fatal "Kernel modules clone failed!"
 
 # Kernel Device-Trees
 warn "Cleaning kernel devicetrees directory"
 rm -rf kernel/xiaomi/sm8635-devicetrees
 info "Cloning kernel devicetrees"
-git clone -b 17 https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635-devicetrees.git kernel/xiaomi/sm8635-devicetrees || fatal "Kernel devicetrees clone failed!"
+git clone -b master https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635-devicetrees.git kernel/xiaomi/sm8635-devicetrees || fatal "Kernel devicetrees clone failed!"
 
 # Dolby
 info "Cloning AospaDolby from Lab"
