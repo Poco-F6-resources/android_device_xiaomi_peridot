@@ -220,6 +220,19 @@
       ]
     },
     {
+      "Name": "HalDisplay",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "cpuset",
+            "Path": "hal-display"
+          }
+        }
+      ]
+    },
+    {
       "Name": "RealtimePerformance",
       "Actions": [
         {
