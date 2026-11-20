@@ -1370,7 +1370,7 @@
       "SamplingWindow_P": 1,
       "SamplingWindow_I": 0,
       "SamplingWindow_D": 1,
-      "ReportingRateLimitNs": 11111111,
+      "ReportingRateLimitNs": 8333333,
       "EarlyBoost_On": false,
       "TargetTimeFactor": 1,
       "StaleTimeFactor": 10
