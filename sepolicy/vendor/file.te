@@ -20,3 +20,8 @@ type vendor_sysfs_msm_subsys, fs_type, sysfs_type;
 
 # Modem
 type diag_device, data_file_type, file_type;
+
+# FastCharge
+type sysfs_power_supply, fs_type, sysfs_type;
+type vendor_sysfs_power_supply, fs_type, sysfs_type;
+type sysfs_fastcharge, sysfs_type, fs_type;

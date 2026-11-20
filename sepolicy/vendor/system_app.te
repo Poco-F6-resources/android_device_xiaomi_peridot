@@ -9,3 +9,8 @@ binder_call(system_app, hal_audio_default)
 binder_call(system_app, hal_bootctl_default)
 binder_call(system_app, hal_camera_default)
 binder_call(system_app, hal_contexthub_default)
+
+# FastCharge
+allow system_app vendor_sysfs_battery_supply:dir search;
+allow system_app sysfs_fastcharge:file { open read write getattr };
+allow system_app vendor_sysfs_battery_supply:file { open read getattr };

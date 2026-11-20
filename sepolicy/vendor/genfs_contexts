@@ -33,3 +33,6 @@ genfscon proc /sys/walt u:object_r:proc_walt:s0
 
 # Thermal
 genfscon sysfs /class/powercap u:object_r:sysfs_thermal:s0
+
+# FastCharge
+genfscon sysfs /class/qcom-battery/fastcharge_enable u:object_r:sysfs_fastcharge:s0

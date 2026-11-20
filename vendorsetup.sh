@@ -78,10 +78,10 @@ rm -rf packages/apps/ChargeControl
 git clone -b main git@github.com:peridot-lab/packages_apps_ChargeControl.git -b main packages/apps/ChargeControl
 
 # FastCharge
-info "Cloning FastCharge From Lab"
+info "Cloning FastCharge From F6-test"
 warn "Cleanig FastCharge"
 rm -rf packages/apps/FastCharge
-git clone -b master git@github.com:peridot-lab/packages_apps_FastCharge.git -b master packages/apps/FastCharge
+git clone -b sixteen git@github.com:F6-test/packages_apps_FastCharge.git packages/apps/FastCharge
 
 # Parts
 info "Cloning Parts from Lab"

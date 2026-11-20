@@ -16,9 +16,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_ven
 # ChargeControl
 $(call inherit-product, packages/apps/ChargeControl/chargecontrol.mk)
 
-# FastCharge
-$(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
-
 # Update Engine
 $(call soong_config_set,update_engine,map_vabc_in_recovery,true)
 
@@ -187,6 +184,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
+
+# FastCharge
+PRODUCT_PACKAGES += \
+    FastCharge
 
 # Graphics
 PRODUCT_PACKAGES += \
@@ -393,6 +394,7 @@ PRODUCT_PACKAGES += \
     OpenDeltaOverlayPeridot \
     SecureElementOverlayPeridot \
     SettingsOverlayPeridot \
+    FastChargePeridot \
     SettingsProviderOverlayPeridotPOCO \
     SettingsProviderOverlayPeridotRedmi \
     SystemUIOverlayPeridot \
