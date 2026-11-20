@@ -167,6 +167,22 @@
       "Optional": true
     },
     {
+      "Name": "CoreCtlMinCoresPrime",
+      "Path": "/sys/devices/system/cpu/cpu7/core_ctl/min_cpus",
+      "Values": ["1", "0"],
+      "DefaultIndex": 1,
+      "ResetOnInit": true,
+      "Optional": true
+    },
+    {
+      "Name": "CoreCtlPrimeNotPreferred",
+      "Path": "/sys/devices/system/cpu/cpu7/core_ctl/not_preferred",
+      "Values": ["0", "1"],
+      "DefaultIndex": 1,
+      "ResetOnInit": true,
+      "Optional": true
+    },
+    {
       "Name": "PMQoSCpuDmaLatency",
       "Path": "/dev/cpu_dma_latency",
       "Values": [
@@ -183,10 +199,11 @@
       "Values": [
         "60",
         "50",
+        "40",
         "30",
         "0"
       ],
-      "DefaultIndex": 3,
+      "DefaultIndex": 4,
       "ResetOnInit": true
     },
     {
@@ -575,25 +592,25 @@
       "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 500,
-      "Value": "1228800"
+      "Value": "1478400"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 500,
-      "Value": "1497600"
+      "Value": "1593600"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUBigPlusClusterMinFreq",
       "Duration": 500,
-      "Value": "1459200"
+      "Value": "1651200"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampTAMin",
       "Duration": 500,
-      "Value": "30"
+      "Value": "40"
     },
     {
       "PowerHint": "INTERACTION",
@@ -660,6 +677,30 @@
       "Node": "L3MinFreq",
       "Duration": 300,
       "Value": "1094400"
+    },
+    { 
+      "PowerHint": "INTERACTION",
+      "Node": "CoreCtlMinCoresPrime",
+      "Duration": 500,
+      "Value": "1"
+    },
+    { 
+      "PowerHint": "INTERACTION",
+      "Node": "CoreCtlPrimeNotPreferred",
+      "Duration": 500,
+      "Value": "0"
+    },
+    { 
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "CoreCtlMinCoresPrime",
+      "Duration": 0,
+      "Value": "1"
+    },
+    { 
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "CoreCtlPrimeNotPreferred",
+      "Duration": 0,
+      "Value": "0"
     },
     {
       "PowerHint": "LAUNCH",
@@ -767,13 +808,13 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
-      "Value": "1228800"
+      "Value": "1478400"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
-      "Value": "1497600"
+      "Value": "1708800"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -785,7 +826,7 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "UclampTAMin",
       "Duration": 0,
-      "Value": "30"
+      "Value": "40"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -810,6 +851,30 @@
       "Node": "CPUBWMinFreq",
       "Duration": 0,
       "Value": "2092000"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "UclampTALatency",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "SchedMinTaskUtilForBoost",
+      "Duration": 0,
+      "Value": "15"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "SchedMinTaskUtilForColoc",
+      "Duration": 0,
+      "Value": "15"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "SchedMinTaskUtilForUclamp",
+      "Duration": 0,
+      "Value": "20"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
