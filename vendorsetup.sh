@@ -87,10 +87,6 @@ git clone -b sixteen git@github.com:F6-test/packages_apps_FastCharge.git package
 info "Cloning Parts from Lab"
 git clone -b yaap git@github.com:peridot-lab/packages_apps_XiaomiParts.git packages/apps/XiaomiParts || fatal "XiaomiParts clone failed"
 
-# Display feature
-info "Cloning DisplayFeature from Yaap"
-git clone -b seventeen https://github.com/yaap/packages_apps_DisplayFeatures.git packages/apps/DisplayFeatures || fatal "Displayfeature clone failed"
-
 # Mi Cam
 info "Cloning Normal Mi Cam from Gitlab"
 info "Cloning Miuicamera vendor"
